@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Community · ZERØ</title>
+<meta name="description" content="ZERØ isn’t about erasing yourself. It’s about allowing yourself to evolve.">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><style>
+.live{display:flex;align-items:center;gap:1.4rem;border:1px solid var(--charcoal);background:linear-gradient(160deg,var(--graphite),#0a0a0a);padding:1.6rem 1.8rem;margin:0 0 2rem}
+.live[hidden]{display:none}
+.live .n{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,8vw,4rem);line-height:1;color:#eceef0}
+.live b{font-family:var(--display);font-weight:600;color:#eceef0;display:block}
+.live span{color:var(--ash);font-size:.95rem}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a class="mark" href="index.html">ZERØ</a><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="community.html">Community</a></li><li><a href="merch.html">Merch</a></li><li><a href="media.html">Media</a></li><li><a href="projects.html">Projects</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="archives.html">Archives</a></li><li><a href="becoming.html">Becoming</a></li></ul></nav>
+<header class="page-head"><h1>A server for whoever you are today.</h1><p class="muted">ZERØ’s Discord welcomes new people and brings a little bit of everything together. Show up as you are.</p></header><section><div class="vibes"><div><h3>Chill</h3><p>Hang out, share music, talk about everyday life and find common interests without pressure.</p></div><div><h3>Meaningful</h3><p>Deeper conversations about growth, identity, creative projects and the experiences that shape us.</p></div><div><h3>Chaotic</h3><p>Memes, inside jokes, gaming, ridiculous conversations and unfiltered fun.</p></div></div><div class="live" id="live" hidden><div class="n" id="live-n">0</div><div><b>online in the server right now</b><span>Come say hi.</span></div></div><p class="muted">Nobody has to be deep and mysterious all the time. Take part however feels comfortable.</p><a class="btn" href="https://discord.gg/jBfXVJUcVZ" target="_blank" rel="noopener">Join the Discord</a></section>
+</div>
+<footer>ZERØ. A beginning, not an absence.</footer>
+<script src="zero-loader.js"></script>
+<script>
+(function(){
+  // Paste your Discord server ID between the quotes (Server Settings > Widget must be on).
+  var ID='1518141840195321906';
+  // The card only appears once this many people are online.
+  var MIN=5;
+  var box=document.getElementById('live');
+  if(!ID||!box)return;
+  fetch('https://discord.com/api/guilds/'+ID+'/widget.json')
+    .then(function(r){if(!r.ok)throw 0;return r.json()})
+    .then(function(d){if(d.presence_count<MIN)return;document.getElementById('live-n').textContent=d.presence_count;box.hidden=false})
+    .catch(function(){});
+})();
+</script>
+</body></html>

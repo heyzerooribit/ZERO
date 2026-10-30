@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Schedule · ZERØ</title>
+<meta name="description" content="ZERØ isn’t about erasing yourself. It’s about allowing yourself to evolve.">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body><div class="wrap">
+<nav><a class="mark" href="index.html">ZERØ</a><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="community.html">Community</a></li><li><a href="merch.html">Merch</a></li><li><a href="media.html">Media</a></li><li><a href="projects.html">Projects</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="archives.html">Archives</a></li><li><a href="becoming.html">Becoming</a></li></ul></nav>
+<header class="page-head cal-head"><div><p class="cal-month" id="cMonth"></p><h1>Calendar</h1></div><div class="cal-ctrl"><button type="button" id="cPrev" aria-label="Previous week">&lsaquo;</button><button type="button" id="cToday">Today</button><button type="button" id="cNext" aria-label="Next week">&rsaquo;</button></div></header>
+<section><div class="week" id="strip"></div></section>
+<section><p class="lab">Up next</p><div class="next" id="up"></div></section>
+<section><div class="daybar"><p class="lab" id="dayLab"></p><span class="muted" id="dayCount"></span></div><div id="dayList"></div></section>
+</div>
+<footer>ZERØ. A beginning, not an absence.</footer>
+<script src="zero-loader.js"></script><script src="zero-calendar.js"></script>
+</body></html>

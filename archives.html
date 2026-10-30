@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Archives · ZERØ</title>
+<meta name="description" content="ZERØ isn’t about erasing yourself. It’s about allowing yourself to evolve.">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body><div class="wrap">
+<nav><a class="mark" href="index.html">ZERØ</a><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="community.html">Community</a></li><li><a href="merch.html">Merch</a></li><li><a href="media.html">Media</a></li><li><a href="projects.html">Projects</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="archives.html">Archives</a></li><li><a href="becoming.html">Becoming</a></li></ul></nav>
+<header class="page-head"><h1>Past chapters.</h1><p class="muted">Write down who you were. Keep it, or let it go. Entries stay in this browser only.</p></header><section><label for="n" class="muted">A chapter you’re carrying forward</label><textarea id="n"></textarea><p style="margin-top:1rem"><button class="btn" id="save" type="button">Save chapter</button></p><ul class="entries" id="list"></ul></section>
+</div>
+<footer>ZERØ. A beginning, not an absence.</footer>
+<script src="zero-loader.js"></script><script>
+(function(){var K='zero-chapters',list=document.getElementById('list'),box=document.getElementById('n');
+function load(){try{return JSON.parse(localStorage.getItem(K))||[]}catch(e){return[]}}
+function save(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}
+function draw(){var a=load();list.textContent='';a.forEach(function(x,i){var li=document.createElement('li'),d=document.createElement('div'),t=document.createElement('time'),p=document.createElement('p'),b=document.createElement('button');
+t.textContent=new Date(x.t).toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'});p.textContent=x.s;b.textContent='Let go';
+b.onclick=function(){var z=load();z.splice(i,1);save(z);draw()};d.appendChild(t);d.appendChild(p);li.appendChild(d);li.appendChild(b);list.appendChild(li)})}
+document.getElementById('save').onclick=function(){var s=box.value.trim();if(!s)return;var a=load();a.unshift({t:Date.now(),s:s});save(a);box.value='';draw()};draw()})();
+</script>
+</body></html>

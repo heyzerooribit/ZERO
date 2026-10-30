@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Becoming · ZERØ</title>
+<meta name="description" content="ZERØ isn’t about erasing yourself. It’s about allowing yourself to evolve.">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body><div class="wrap">
+<nav><a class="mark" href="index.html">ZERØ</a><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="community.html">Community</a></li><li><a href="merch.html">Merch</a></li><li><a href="media.html">Media</a></li><li><a href="projects.html">Projects</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="archives.html">Archives</a></li><li><a href="becoming.html">Becoming</a></li></ul></nav>
+<header class="page-head"><h1>Becoming.</h1><p class="muted">A question to sit with. Take another whenever you like.</p></header><section><p class="prompt" id="q" aria-live="polite"></p><button class="btn" id="next" type="button">Another question</button></section>
+</div>
+<footer>ZERØ. A beginning, not an absence.</footer>
+<script src="zero-loader.js"></script><script>
+(function(){var Q=['What are you allowed to outgrow?','Which part of your past do you want to keep?','What would you try if it didn’t need explaining?','What change have you been apologizing for?','Who could you be that you couldn’t imagine before?','What does your next direction look like?'],q=document.getElementById('q'),i=-1;
+function go(){var n;do{n=Math.floor(Math.random()*Q.length)}while(n===i);i=n;q.textContent=Q[n]}
+document.getElementById('next').onclick=go;go()})();
+</script>
+</body></html>
