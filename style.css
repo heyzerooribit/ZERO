@@ -130,3 +130,13 @@ textarea,input{border-radius:16px}
 .next .note{flex:none;order:3;width:100%}
 .next{flex-wrap:wrap}
 .next .info{flex:1 1 140px}
+
+/* ===== glow ===== */
+nav .mark{display:inline-flex;align-items:center;gap:.65rem;text-shadow:0 0 18px rgba(183,148,255,.55)}
+.logo-tile{width:36px;height:36px;border-radius:11px;filter:drop-shadow(0 0 10px rgba(183,148,255,.65))}
+.hero svg{filter:drop-shadow(0 0 22px rgba(167,139,250,.45))}
+
+.logo-tile{filter:drop-shadow(0 0 12px rgba(214,200,255,.8)) drop-shadow(0 0 3px rgba(255,255,255,.5))}
+nav .mark{text-shadow:0 0 16px rgba(214,200,255,.55)}
+
+@media(max-width:860px){.sheet{display:block}.sheet[hidden]{display:none}}
