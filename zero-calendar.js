@@ -51,17 +51,21 @@
     var box=$('up'),now=Date.now(),n=null;
     for(var i=0;i<events.length;i++){if(events[i].end>now){n=events[i];break}}
     if(!n){box.textContent='';box.appendChild(el('p','muted','Nothing scheduled right now.'));return}
+    var L=(window.ZERO_LIVE&&typeof window.ZERO_LIVE.live==='boolean')?window.ZERO_LIVE.live:null;
+    if(L===true){n={start:now-1,end:now+864e5,title:TITLE,where:WHERE,forced:true}}
     var live=now>=n.start,t=n.start-now,txt,prog;
-    if(live){txt='Live';prog=1}
+    if(live&&L===false){txt='Not live';prog=1}
+    else if(live){txt='Live';prog=1}
     else{var d=Math.floor(t/864e5),h=Math.floor(t/36e5)%24,m=Math.floor(t/6e4)%60,s=Math.floor(t/1e3)%60;
       txt=d?d+'d '+h+'h':(h?h+'h '+m+'m':m+'m '+s+'s');prog=1-Math.min(1,t/(7*864e5))}
-    if(!box.firstChild||box.dataset.k!==String(n.start)){
-      box.dataset.k=String(n.start);box.textContent='';
+    var kk=n.forced?'live':String(n.start);
+    if(!box.firstChild||box.dataset.k!==kk){
+      box.dataset.k=kk;box.textContent='';
       var ring=el('div','cring');
       ring.innerHTML='<svg viewBox="0 0 132 132" aria-hidden="true"><circle class="bg" cx="66" cy="66" r="57"/><circle class="fg" cx="66" cy="66" r="57" stroke-dasharray="'+C+'"/></svg>';
       ring.appendChild(el('span','',''));
       var info=el('div','info');info.appendChild(el('b','big',n.title));
-      info.appendChild(el('p','',new Date(n.start).toLocaleString(undefined,{weekday:'long',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'})));
+      info.appendChild(el('p','',n.forced?'Live now':new Date(n.start).toLocaleString(undefined,{weekday:'long',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'})));
       info.appendChild(el('p','muted',n.where));
       box.appendChild(ring);box.appendChild(info);
       var note=el('p','muted note','Regular streams: Monday, Tuesday, Thursday and Friday, 8 PM to midnight Eastern, shown in your time.');box.appendChild(note)}
@@ -72,5 +76,5 @@
   $('cPrev').onclick=function(){weekStart=addDays(weekStart,-7);sel=weekStart<=today&&today<addDays(weekStart,7)?today:weekStart;drawStrip();drawDay()};
   $('cNext').onclick=function(){weekStart=addDays(weekStart,7);sel=weekStart<=today&&today<addDays(weekStart,7)?today:weekStart;drawStrip();drawDay()};
   $('cToday').onclick=function(){today=mid(Date.now());weekStart=today;sel=today;drawStrip();drawDay()};
-  drawStrip();drawDay();drawUp();setInterval(drawUp,1000);
+  drawStrip();drawDay();drawUp();setInterval(drawUp,1000);window.addEventListener('zero-live',drawUp);
 })();
