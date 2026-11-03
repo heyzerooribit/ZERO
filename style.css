@@ -175,3 +175,13 @@ nav ul a{position:relative}nav ul .badge{top:-12px;right:-16px}
 
 /* logo image in the top bar */
 .logo-tile{border-radius:12px;border:1px solid rgba(255,45,61,.4);filter:drop-shadow(0 0 10px rgba(255,45,61,.6))}
+
+/* inbox filters and message types */
+.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.chips button{padding:.5rem 1rem;border:1px solid var(--charcoal);border-radius:999px;background:#0a0a0a;color:var(--ash);font:500 .9rem var(--body);cursor:pointer}
+.chips button:hover{color:#fff}
+.chips button.on{border-color:var(--accent);color:#fff;background:rgba(255,45,61,.12)}
+.msg .body{margin:.7rem 0 0;max-width:none;color:var(--silver)}
+.msg .btn{margin-top:1rem}
+.msg .when{margin:.7rem 0 0;font-size:.88rem}
+.msg.t-welcome .meta span:first-child,.msg.t-news .meta span:first-child{color:var(--accent)}
